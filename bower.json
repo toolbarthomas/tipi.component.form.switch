@@ -1,0 +1,20 @@
+{
+  "name": "tipi.component.form.unified-switch",
+  "homepage": "https://github.com/toolbarthomas/tipi.component.form.unified-switch",
+  "authors": [
+    "Thomas van der Velde <contact@toolbarthomas.net>"
+  ],
+  "description": "Switch component for Tipi",
+  "keywords": [
+    "toolbarthomas",
+    "modular",
+    "form",
+    "unified",
+    "switch"
+  ],
+  "license": "MIT",
+  "main": "_tipi.component.form.unified-switch.scss",
+  "dependencies": {
+    "tipi.tool.form.validation": "^1.0.0"
+  }
+}

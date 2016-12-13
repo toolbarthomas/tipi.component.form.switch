@@ -1,0 +1,50 @@
+@mixin core_form_unified-switch {
+	.switch {
+		display: inline-block;
+		font-size: inherit;
+
+		&.__switch--ready {
+			display: block;
+			position: relative;
+			overflow: hidden;
+			cursor: pointer;
+		}
+
+		&.__switch--disabled {
+			cursor: not-allowed;
+		}
+	}
+
+	.switch-control {
+		display: inline-block;
+
+		.__switch--ready & {
+			display: block;
+			overflow: hidden;
+			position: absolute;
+			top: 0;
+
+			&:before {
+				content: " ";
+				display: block;
+				position: absolute;
+			}
+
+			input {
+				position: absolute;
+				top: 0;
+				right: 100%;
+				width: 0.1px;
+				height: 0.1px;
+				opacity: 0;
+				overflow: hidden;
+			}
+		}
+
+		.__switch--active & {
+			@include transform(
+				translate(100%)
+			);
+		}
+	}
+}

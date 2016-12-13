@@ -1,0 +1,6 @@
+@import "mixins/__unified-switch-style";
+@import "mixins/__unified-switch-layout";
+
+@import "__core";
+
+@include core_form_unified-switch;

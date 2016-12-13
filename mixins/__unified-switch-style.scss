@@ -1,0 +1,181 @@
+@mixin switch_style(
+	$selector: null,
+	$switch-border: false,
+	$switch-border-radius: false,
+	$switch-background: false,
+	$switch-box-shadow: false,
+	$switch-border-color--focus: false,
+	$switch-border-radius--focus: false,
+	$switch-background--focus: false,
+	$switch-box-shadow--focus: false,
+	$switch-border-color--active: false,
+	$switch-border-radius--active: false,
+	$switch-background--active: false,
+	$switch-box-shadow--active: false,
+	$switch-control-border: false,
+	$switch-control-border-radius: false,
+	$switch-control-background: false,
+	$switch-control-box-shadow: false,
+	$switch-control-border-color--focus: false,
+	$switch-control-border-radius--focus: false,
+	$switch-control-background--focus: false,
+	$switch-control-box-shadow--focus: false,
+	$switch-control-border-color--active: false,
+	$switch-control-border-radius--active: false,
+	$switch-control-background--active: false,
+	$switch-control-box-shadow--active: false,
+	$switch-disabled-opacity: false,
+	$switch-transitions: false,
+	$switch-transition-speed: 120ms,
+	$switch-transition-timing: ease-in-out,
+	$switch-transition-delay: 0ms
+) {
+	.switch {
+		&#{$selector} {
+			&.__switch--ready {
+				@if $switch-border != false {
+					border: $switch-border;
+				}
+
+				@if $switch-border-radius != false {
+					border-radius: $switch-border-radius;
+				}
+
+				@if $switch-background != false {
+					background: $switch-background;
+				}
+
+				@if $switch-box-shadow != false {
+					box-shadow: $switch-box-shadow;
+				}
+
+				@if $switch-transitions != false {
+					@include transition(
+						(border-color $switch-transition-speed $switch-transition-timing $switch-transition-delay),
+						(border-radius $switch-transition-speed $switch-transition-timing $switch-transition-delay),
+						(background $switch-transition-speed $switch-transition-timing $switch-transition-delay),
+						(box-shadow $switch-transition-speed $switch-transition-timing $switch-transition-delay)
+					);
+				}
+
+				.switch-control {
+					@if $switch-transitions == true {
+						@include transition(
+							(transform $switch-transition-speed $switch-transition-timing $switch-transition-delay)
+						);
+					}
+
+					&:before {
+						@if $switch-control-border != false {
+							border: $switch-control-border;
+						}
+
+						@if $switch-control-border-radius != false {
+							border-radius: $switch-control-border-radius;
+						}
+
+						@if $switch-control-background != false {
+							background: $switch-control-background;
+						}
+
+						@if $switch-control-box-shadow != false {
+							box-shadow: $switch-control-box-shadow;
+						}
+
+						@if $switch-transitions != false {
+							@include transition(
+								(border-color $switch-transition-speed $switch-transition-timing $switch-transition-delay),
+								(border-radius $switch-transition-speed $switch-transition-timing $switch-transition-delay),
+								(background $switch-transition-speed $switch-transition-timing $switch-transition-delay),
+								(box-shadow $switch-transition-speed $switch-transition-timing $switch-transition-delay)
+							);
+						}
+					}
+				}
+			}
+
+			&.__switch--focus,
+			.no-touchevents &.__switch--ready:not(.__switch--disabled):hover {
+				@if $switch-border-color--focus != false {
+					border-color: $switch-border-color--focus;
+				}
+
+				@if $switch-border-radius--focus != false {
+					border-radius: $switch-border-radius--focus;
+				}
+
+				@if $switch-background--focus != false {
+					background: $switch-background--focus;
+				}
+
+				@if $switch-box-shadow--focus != false {
+					box-shadow: $switch-box-shadow--focus;
+				}
+
+				.switch-control {
+					&:before {
+						@if $switch-control-border-color--focus != false {
+							border-color: $switch-control-border-color--focus;
+						}
+
+						@if $switch-control-border-radius != false {
+							border-radius: $switch-control-border-radius;
+						}
+
+						@if $switch-control-background != false {
+							background: $switch-control-background;
+						}
+
+						@if $switch-control-box-shadow != false {
+							box-shadow: $switch-control-box-shadow;
+						}
+					}
+				}
+			}
+
+			&.__switch--active {
+				@if $switch-border-color--active != false {
+					border-color: $switch-border-color--active;
+				}
+
+				@if $switch-border-radius--active != false {
+					border-radius: $switch-border-radius--active;
+				}
+
+				@if $switch-background--active != false {
+					background: $switch-background--active;
+				}
+
+				@if $switch-box-shadow--active != false {
+					box-shadow: $switch-box-shadow--active;
+				}
+
+				.switch-control {
+					&:before {
+						@if $switch-control-border-color--focus != false {
+							border-color: $switch-control-border-color--focus;
+						}
+
+						@if $switch-control-border-radius != false {
+							border-radius: $switch-control-border-radius;
+						}
+
+						@if $switch-control-background != false {
+							background: $switch-control-background;
+						}
+
+						@if $switch-control-box-shadow != false {
+							box-shadow: $switch-control-box-shadow;
+						}
+					}
+				}
+			}
+
+			@if $switch-disabled-opacity != false {
+				&.__switch--disabled {
+					opacity: $switch-disabled-opacity;
+				}
+			}
+		}
+	}
+}

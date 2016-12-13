@@ -1,0 +1,62 @@
+@mixin switch_layout(
+	$selector: null,
+	$switch-width: false,
+	$switch-height: false,
+	$switch-margin-bottom: false,
+	$switch-control-default-position: left,
+	$switch-control-width: false,
+	$switch-control-height: false,
+	$switch-control-gutter: false
+) {
+	.switch {
+		&#{$selector} {
+			margin-bottom: $switch-margin-bottom;
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+			&.__switch--ready {
+				@if $switch-width != false {
+					width: $switch-width;
+				}
+				@if $switch-height != false {
+					height: $switch-height;
+				}
+
+				.switch-control {
+					@if $switch-control-default-position == left {
+						left: 0;
+					}
+					@else {
+						right: 0;
+					}
+
+					@if $switch-control-width != false {
+						width: $switch-control-width;
+					}
+					@if $switch-control-width != false {
+						height: $switch-control-height;
+					}
+
+					&:before {
+						@if $switch-control-gutter != false {
+							top: $switch-control-gutter;
+							right: $switch-control-gutter;
+							bottom: $switch-control-gutter;
+							left: $switch-control-gutter;
+						}
+					}
+				}
+			}
+
+			&.__switch--active {
+				@if $switch-control-default-position == left {
+					right: 0;
+				}
+				@else {
+					left: 0;
+				}
+			}
+		}
+	}
+}
