@@ -61,7 +61,9 @@
 				.switch-control {
 					@if $switch-transitions == true {
 						@include transition(
-							(transform $switch-transition-speed $switch-transition-timing $switch-transition-delay)
+							(transform $switch-transition-speed $switch-transition-timing $switch-transition-delay),
+							(right $switch-transition-speed $switch-transition-timing $switch-transition-delay),
+							(left $switch-transition-speed $switch-transition-timing $switch-transition-delay)
 						);
 					}
 

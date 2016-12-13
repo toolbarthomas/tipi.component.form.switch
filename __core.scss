@@ -40,11 +40,5 @@
 				overflow: hidden;
 			}
 		}
-
-		.__switch--active & {
-			@include transform(
-				translate(100%)
-			);
-		}
 	}
 }

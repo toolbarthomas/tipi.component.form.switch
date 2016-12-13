@@ -50,11 +50,21 @@
 			}
 
 			&.__switch--active {
-				@if $switch-control-default-position == left {
-					right: 0;
-				}
-				@else {
-					left: 0;
+				.switch-control {
+					@if unquote($switch-control-default-position) == left {
+						left: 100%;
+
+						@include transform(
+							translateX(-100%)
+						);
+					}
+					@else {
+						right: 100%;
+
+						@include transform(
+							translateX(100%)
+						);
+					}
 				}
 			}
 		}
