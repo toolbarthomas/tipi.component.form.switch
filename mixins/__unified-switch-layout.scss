@@ -19,6 +19,7 @@
 				@if $switch-width != false {
 					width: $switch-width;
 				}
+
 				@if $switch-height != false {
 					height: $switch-height;
 				}
@@ -34,6 +35,7 @@
 					@if $switch-control-width != false {
 						width: $switch-control-width;
 					}
+
 					@if $switch-control-width != false {
 						height: $switch-control-height;
 					}
@@ -44,6 +46,12 @@
 							right: $switch-control-gutter;
 							bottom: $switch-control-gutter;
 							left: $switch-control-gutter;
+						}
+						@else {
+							top: 0;
+							right: 0;
+							bottom: 0;
+							left: 0;
 						}
 					}
 				}
